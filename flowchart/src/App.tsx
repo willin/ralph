@@ -44,8 +44,6 @@ const LanguageContext = createContext<{
   toggleLanguage: () => {},
 });
 
-const useLanguage = () => useContext(LanguageContext);
-
 const allSteps: { id: string; label: string; description: string; phase: Phase }[] = [
   // Setup phase (vertical)
   { id: '1', label: 'You write a PRD', description: 'Define what you want to build', phase: 'setup' },
@@ -130,8 +128,6 @@ function NoteNode({ data }: { data: { content: string; color: { bg: string; bord
   );
 }
 
-const nodeTypes = { custom: CustomNode, note: NoteNode };
-
 const positions: { [key: string]: { x: number; y: number } } = {
   // Vertical setup flow on the left
   '1': { x: 20, y: 20 },
@@ -182,40 +178,6 @@ function createNode(step: typeof allSteps[0], visible: boolean, position?: { x: 
       opacity: visible ? 1 : 0,
       transition: 'opacity 0.5s ease-in-out',
       pointerEvents: visible ? 'auto' : 'none',
-    },
-  };
-}
-
-function createEdge(conn: typeof edgeConnections[0], visible: boolean): Edge {
-  return {
-    id: `e${conn.source}-${conn.target}`,
-    source: conn.source,
-    target: conn.target,
-    sourceHandle: conn.sourceHandle,
-    targetHandle: conn.targetHandle,
-    label: visible ? conn.label : undefined,
-    animated: visible,
-    style: {
-      stroke: '#222',
-      strokeWidth: 2,
-      opacity: visible ? 1 : 0,
-      transition: 'opacity 0.5s ease-in-out',
-    },
-    labelStyle: {
-      fill: '#222',
-      fontWeight: 600,
-      fontSize: 14,
-    },
-    labelShowBg: true,
-    labelBgPadding: [8, 4] as [number, number],
-    labelBgStyle: {
-      fill: '#fff',
-      stroke: '#222',
-      strokeWidth: 1,
-    },
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-      color: '#222',
     },
   };
 }
