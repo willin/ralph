@@ -1,0 +1,64 @@
+{
+  "project": "MyApp",
+  "branchName": "ralph/task-priority",
+  "description": "任务优先级系统 - 为任务添加优先级",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "向数据库添加优先级字段",
+      "description": "作为一个开发者，我需要存储任务优先级，使其在会话之间保持。",
+      "acceptanceCriteria": [
+        "向任务表添加优先级列：'high' | 'medium' | 'low'（默认 'medium'）",
+        "成功生成并运行迁移",
+        "类型检查通过"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "在任务卡片上显示优先级指示器",
+      "description": "作为一个用户，我希望能够一眼看到任务优先级。",
+      "acceptanceCriteria": [
+        "每个任务卡片显示彩色优先级徽章（红色=高，黄色=中，灰色=低）",
+        "无需悬停或点击即可看到优先级",
+        "类型检查通过",
+        "使用 dev-browser 技能在浏览器中验证"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "向任务编辑添加优先级选择器",
+      "description": "作为一个用户，我想要在编辑任务时更改任务的优先级。",
+      "acceptanceCriteria": [
+        "任务编辑模态框中的优先级下拉菜单",
+        "显示当前优先级为选中项",
+        "选择更改时立即保存",
+        "类型检查通过",
+        "使用 dev-browser 技能在浏览器中验证"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "按优先级筛选任务",
+      "description": "作为一个用户，我想要筛选任务列表，只看到高优先级项目。",
+      "acceptanceCriteria": [
+        "带选项的筛选下拉菜单：全部 | 高 | 中 | 低",
+        "筛选器保留在 URL 参数中",
+        "当没有任务匹配筛选器时显示空状态消息",
+        "类型检查通过",
+        "使用 dev-browser 技能在浏览器中验证"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
